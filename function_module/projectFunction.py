@@ -17,7 +17,7 @@ output: data_list - a list of all the data except the header
 def readFile(fileName):
     
     '''reads the data file from the named state'''
-    assert(isinstance(fileName,str)
+    assert isinstance(fileName,str)
     data = np.loadtxt(fileName,delimiter=',',dtype=str)
     data_list = []
     for i in range(1, len(data)):
@@ -32,7 +32,7 @@ input: data - country data with no header
 output: reduced_data - simplified with only date, deaths
 """
 def simplifyData(data):
-    assert(isinstance(data,list)
+    assert isinstance(data,list)
     reduced_data = []
     for item in data:
         reduced_data.append([item[0],item[2]])
@@ -45,7 +45,7 @@ input: data - reduced data with Dates, deaths, deathsIncrease
 output: sorted_data - data sorted from 2020 to 2021
 """
 def sortData(data):
-    assert(isinstance(data,list)
+    assert isinstance(data,list)
     sorted_data = []
     for i in range(len(data)-1, -1, -1):
         sorted_data.append(data[i])
@@ -65,7 +65,7 @@ input: data - sorted data with just data, deaths
 output: monthly_data - data reduced to deaths per month
 """
 def createMonthlyAverage(data):
-    assert(isinstance(data,list)
+    assert isinstance(data,list)
     months = ["March","April","May","June","July","August","September","October","November","December","January","Febuary"]
     monthly_data = []
     current = 0
@@ -95,10 +95,10 @@ output: montlyAverages is returned which is deaths for each month times 1000
         the function also plots the graph of each state
 """
 def graphState(fileName, state, pop, opt=[]):
-    assert(isinstance(fileName,str)
-    assert(isinstance(state,str)
-    assert(isinstance(pop,float))
-    assert(isinstance(opt,list))
+    assert isinstance(fileName,str)
+    assert isinstance(state,str)
+    assert isinstance(pop,float))
+    assert isinstance(opt,list)
     months = ["Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec","Jan","Feb"]
     data = readFile(fileName)
     data = simplifyData(data)
@@ -128,7 +128,7 @@ input: stateList - list of all red/blue states
 output: avgList - average of all deaths for each month
 """
 def calculateAverageOfStates(stateList):
-    assert(isinstance(stateList,list)
+    assert isinstance(stateList,list)
     avgList = []
     total = len(stateList)
     
@@ -150,8 +150,8 @@ output: nothing returned, plots graph
 """     
 
 def graphRBStates(stateAvgList, stateColor):
-    assert(isinstance(stateAvgList,list))
-    assert(isinstance(stateColor),str))
+    assert isinstance(stateAvgList,list)
+    assert isinstance(stateColor,str)
     months = ["Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec","Jan","Feb"]
     plt.scatter(months, stateAvgList)
     plt.xlabel('Month')
