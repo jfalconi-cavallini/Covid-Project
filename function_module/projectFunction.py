@@ -1,6 +1,13 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[2]:
+
+
 ## Data ##
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 """
 Function Name: readFile
@@ -136,12 +143,12 @@ input: stateAvgList - list of all the states average deaths
        stateColor - title for plot red or blue states
 output: nothing returned, plots graph
 """     
-import matplotlib.pyplot as plt 
 
 def graphRBStates(stateAvgList, stateColor):
 
     months = ["Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec","Jan","Feb"]
     plt.scatter(months, stateAvgList)
+    
     plt.xlabel('Month')
     plt.ylabel('Deaths x 1000')
     plt.title(stateColor + " Covid Deaths")
