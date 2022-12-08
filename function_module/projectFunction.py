@@ -148,7 +148,6 @@ input: stateAvgList - list of all the states average deaths
        stateColor - title for plot red or blue states
 output: nothing returned, plots graph
 """     
-import matplotlib.pyplot as plt 
 
 def graphRBStates(stateAvgList, stateColor):
     assert(isinstance(stateAvgList,list))
